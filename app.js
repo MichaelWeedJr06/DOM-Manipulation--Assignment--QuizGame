@@ -63,12 +63,7 @@ for (let i = 0; i < answers.length; i++) {
 function OnClick() {
   After.style.display = "block";
   //After.classList.toggle("win");
-  if (QuestionList.length == 0) {
-    for (let i = 0; i < answers.length; i++) {
-      answers[i].style.display = "none";
-      question.innerText = "Quiz Done!!!!";
-    }
-  }
+
   if (this.innerText === QuestionList[Index].answs[correctAnswerIndex]) {
     text.innerText = "Correct";
     this.classList.add("correct");
@@ -90,11 +85,13 @@ function OnClick() {
       }
     }
   }
+
   for (let i = 0; i < answers.length; i++) {
     answers[i].classList.remove("answerss");
     answers[i].disabled = true;
   }
 }
+
 function CleanButtons() {
   for (let i = 0; i < answers.length; i++) {
     answers[i].classList.remove("correct");
@@ -108,7 +105,12 @@ function Next() {
 
 function SetScreen() {
   After.style.display = "none";
-
+  if (QuestionList.length == 0) {
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].style.display = "none";
+      question.innerText = "Quiz Done!!!!";
+    }
+  }
   //After.classList.toggle("after");
   for (let i = 0; i < answers.length; i++) {
     answers[i].disabled = false;
