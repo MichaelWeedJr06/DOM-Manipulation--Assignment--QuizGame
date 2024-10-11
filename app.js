@@ -20,13 +20,13 @@ function OnClick() {
     correctCount += parseInt(answeredCorrect.innerHTML);
     answeredCorrect.innerText = toString(correctCount);
     index = QuestionList.indexOf(Index);
-    QuestionList.pop(index, 1);
+    QuestionList.pop(index);
   } else {
     this.backgroundColor = "red";
     After.classList.toggle("win");
     text.innerText = "Wrong";
     index = QuestionList.indexOf(Index);
-    QuestionList.pop(index, 1);
+    QuestionList.pop(index);
   }
   for (let i = 0; i < answers.length; i++) {
     answers[i].disabled = true;
