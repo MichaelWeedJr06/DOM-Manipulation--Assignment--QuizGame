@@ -47,3 +47,12 @@ img {
 .win {
   display: block;
 }
+.correct {
+  border-color: green;
+}
+.wrong {
+  border-color: red;
+}
+.answerss:hover {
+  background-color: lightblue;
+}
