@@ -79,9 +79,6 @@ function OnClick() {
       ) {
         QuestionList.splice(Index, 1);
         answers[i].classList.add("correct");
-      } else {
-        text.innerText = "Wrong";
-        QuestionList.splice(Index, 1);
       }
     }
   }
@@ -105,24 +102,26 @@ function Next() {
 
 function SetScreen() {
   After.style.display = "none";
-  if (QuestionList.length == 0) {
+  if (QuestionList == "") {
     for (let i = 0; i < answers.length; i++) {
       answers[i].style.display = "none";
       question.innerText = "Quiz Done!!!!";
+      image.style.display = "none";
     }
-  }
-  //After.classList.toggle("after");
-  for (let i = 0; i < answers.length; i++) {
-    answers[i].disabled = false;
-  }
-  CleanButtons();
-  question = Math.floor(Math.random() * QuestionList.length);
-  Index = question;
-  correctAnswerIndex = QuestionList[Index].correctAnswer;
-  question.innerText = QuestionList[Index].question;
-  image.src = QuestionList[Index].img;
-  for (let i = 0; i < QuestionList[question].answs.length; i++) {
-    answers[i].innerText = QuestionList[question].answs[i];
+  } else {
+    //After.classList.toggle("after");
+    for (let i = 0; i < answers.length; i++) {
+      answers[i].disabled = false;
+    }
+    CleanButtons();
+    Index = Math.floor(Math.random() * QuestionList.length);
+
+    correctAnswerIndex = QuestionList[Index].correctAnswer;
+    question.innerText = QuestionList[Index].question;
+    image.src = QuestionList[Index].img;
+    for (let i = 0; i < QuestionList[Index].answs.length; i++) {
+      answers[i].innerText = QuestionList[Index].answs[i];
+    }
   }
 }
 answeredCorrect.innerText = correctCount;
